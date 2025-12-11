@@ -44,8 +44,4 @@ Fine-tuned tag model performs comparatively well, but accuracy still depends on:
 - How clearly the tag appears
 - Variations in tag design, size, orientation
 - Distance from camera
-Expanding the training data to include more:
-- Angles
-- Distances
-- Lighting conditions
-will make the model more robust.
+Expanding the training data to include more angles, distances, and lighting conditions will make the model more robust.
