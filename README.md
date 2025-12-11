@@ -6,7 +6,7 @@ This system combines two YOLO models:
 1. Person Detection - [Pretrained YOLOv8 Model](https://docs.ultralytics.com/models/yolov8/)
 2. Tag Detection - Custom [YOLO tag model](runs/detect/tag_model/weights/best.pt)
 ## Final Output
-[Output video](output_debug_tag_boxes.mp4)
+![Output video](output_debug_tag_boxes.mp4)
 - Staff with tag -> green bounding box
 - Person without tag -> red bounding box
 - Detected tag -> orange bounding box
