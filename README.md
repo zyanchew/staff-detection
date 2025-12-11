@@ -15,12 +15,12 @@ The coordinates of staff is recorded in [detections.csv](detections.csv).
 
 ## Algorithm Workflow
 1. Person Detection
-- Uses YOLOv8 pretrained on the COCO dataset (yolov8l.pt)
+- Uses YOLOv8 pretrained on the COCO dataset (yolov8l.pt).
 - Outputs bounding boxes + confidence scores
 - Confidence = probability the detected object is a human
 - Example: 0.89 means the model is 89% sure it detected a person
-2. Tag Detection (yolo.ipynb)
-- Uses a custom YOLO tag model trained on a [frame dataset](frames) extracted from sample.mp4.
+2. Tag Detection 
+- Uses a custom [YOLO tag model](scripts/yolo.ipynb) trained on a [frame dataset](frames) extracted from sample.mp4.
 - The object is labeled using [labelImg](https://pypi.org/project/labelImg/).
 - The dataset was splited into [train set](data/images/train) and [val set](data/images/val).
 - Only detects the staff name tag.
@@ -29,7 +29,23 @@ The coordinates of staff is recorded in [detections.csv](detections.csv).
 - A person is considered staff when the tag bounding box lies inside the person’s bounding box.
 
 ## Accuracy and Limitations
-Current issues:
-- The resolution of the sample video is low, motion blur, small tag; all these may contribute to the inaccuracy of detection
-- The pretrained YOLO person model does not perfectly perform; thus, recognition is not accurate.
-- To improve accuracy, improve accuracy/performance of person model, tag model perform relatively better, however, it could also be improve by increasing training set.
+While the system is functional, several factors currently limit its detection accuracy:
+1. Video Quality Constraints
+- The sample video used for testing has low resolution, motion blur, and a small, low-visibility staff tag.
+- These factors significantly reduce the model’s ability to correctly detect both persons and tags.
+- Improving video quality (higher resolution, stable camera, better lighting) will directly improve detection performance.
+2. Pretrained YOLO Person Detection Limitations
+- The system relies on a pretrained YOLOv8 person model, which may fail under: Unusual body poses, low light, crowded scenes.
+- When the person detector misses a person or produces inaccurate bounding boxes, the tag detector cannot function correctly.
+Potential Improvement:
+Fine-tune the person model on specific environment (e.g., shopping mall, office, event space). Even a small custom dataset can significantly increase performance.
+3. Tag Detector Model Performance
+Fine-tuned tag model performs comparatively well, but accuracy still depends on:
+- How clearly the tag appears
+- Variations in tag design, size, orientation
+- Distance from camera
+Expanding the training data to include more:
+- Angles
+- Distances
+- Lighting conditions
+will make the model more robust.
