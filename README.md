@@ -6,12 +6,14 @@ This system combines two YOLO models:
 1. Person Detection - [Pretrained YOLOv8 Model](https://docs.ultralytics.com/models/yolov8/)
 2. Tag Detection - Custom [YOLO tag model](runs/detect/tag_model/weights/best.pt)
 ## Final Output
-![Output video](output_debug_tag_boxes.mp4)
-- Staff with tag -> green bounding box
+[Output video](output_debug_tag_boxes.mp4)
+- Staff with tag -> green bounding box \
+![images](staff_crops/frame00380_person0.jpg)
 - Person without tag -> red bounding box
-- Detected tag -> orange bounding box
+- Detected tag -> orange bounding box \
+![images](staff_crops/frame00558_person0.jpg)
 - The value indicates confidence scores.
-The coordinates of staff is recorded in [detections.csv](detections.csv).
+- The coordinates of staff is recorded in [detections.csv](detections.csv).
 
 ## Algorithm Workflow
 1. Person Detection
