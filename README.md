@@ -37,11 +37,11 @@ While the system is functional, several factors currently limit its detection ac
 2. Pretrained YOLO Person Detection Limitations
 - The system relies on a pretrained YOLOv8 person model, which may fail under: Unusual body poses, low light, crowded scenes.
 - When the person detector misses a person or produces inaccurate bounding boxes, the tag detector cannot function correctly.
-Potential Improvement:
-Fine-tune the person model on specific environment (e.g., shopping mall, office, event space). Even a small custom dataset can significantly increase performance.
-3. Tag Detector Model Performance
+- Potential Improvement: Fine-tune the person model on specific environment (e.g., shopping mall, office, event space). Even a small custom dataset can significantly increase performance.
+3. Tag Detector Model Performance \
 Fine-tuned tag model performs comparatively well, but accuracy still depends on:
 - How clearly the tag appears
 - Variations in tag design, size, orientation
-- Distance from camera
+- Distance from camera 
+
 Expanding the training data to include more angles, distances, and lighting conditions will make the model more robust.
